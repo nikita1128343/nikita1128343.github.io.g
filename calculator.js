@@ -1,59 +1,104 @@
-
 document.addEventListener('DOMContentLoaded', function() {
-    
-    const productSelect = document.getElementById('product');
+
     const quantityInput = document.getElementById('quantity');
-    const calculateBtn = document.getElementById('calculateBtn');
-    const totalPriceDiv = document.getElementById('totalPrice');
-
+    const serviceTypeRadios = document.querySelectorAll('input[name="serviceType"]');
+    const optionsSection = document.getElementById('optionsSection');
+    const optionsSelect = document.getElementById('options');
+    const propertySection = document.getElementById('propertySection');
+    const propertyCheckbox = document.getElementById('property');
+    const priceValue = document.getElementById('priceValue');
     
-    if (!productSelect) {
-        console.error('Элемент #product не найден!');
-        return;
-    }
-    if (!quantityInput) {
-        console.error('Элемент #quantity не найден!');
-        return;
-    }
-    if (!calculateBtn) {
-        console.error('Элемент #calculateBtn не найден!');
-        return;
-    }
-    if (!totalPriceDiv) {
-        console.error('Элемент #totalPrice не найден!');
-        return;
-    }
-
-    console.log('Все элементы калькулятора найдены. Готов к работе.');
-
+   
+    const basePrices = {
+        basic: 1000,
+        standard: 2000,
+        premium: 3000
+    };
     
-    calculateBtn.addEventListener('click', function() {
-        console.log('Кнопка "Рассчитать стоимость" нажата.');
 
+    function calculateTotal() {
         
-        const selectedValue = productSelect.value; 
-        console.log('Выбранное значение товара:', selectedValue);
-
-        const price = parseInt(selectedValue) || 0; 
-        console.log('Цена товара:', price);
-
+        let selectedType = 'basic';
+        let typePrice = basePrices.basic;
         
-        const quantity = parseInt(quantityInput.value) || 0; 
-        console.log('Количество:', quantity);
-
+        for (const radio of serviceTypeRadios) {
+            if (radio.checked) {
+                selectedType = radio.value;
+                typePrice = basePrices[selectedType];
+                break;
+            }
+        }
         
-        const total = price * quantity;
-        console.log('Итоговая стоимость:', total);
-
+        
+        const quantity = parseInt(quantityInput.value) || 0;
+        
+        
+        let optionPrice = 0;
+        if (selectedType === 'standard' && optionsSection.style.display !== 'none') {
+            optionPrice = parseInt(optionsSelect.value) || 0;
+        }
+        
        
-        const formattedTotal = total.toLocaleString('ru-RU');
-        totalPriceDiv.textContent = `Стоимость заказа: ${formattedTotal} руб.`;
-
-        console.log('Результат отображён:', totalPriceDiv.textContent);
+        let propertyPrice = 0;
+        if (selectedType === 'premium' && propertySection.style.display !== 'none' && propertyCheckbox.checked) {
+            propertyPrice = parseInt(propertyCheckbox.value) || 0;
+        }
+        
+       
+        const total = (typePrice + optionPrice + propertyPrice) * Math.max(quantity, 0);
+        
+        
+        priceValue.textContent = total.toLocaleString('ru-RU');
+    }
+    
+   
+    function updateVisibility() {
+       
+        let selectedType = 'basic';
+        for (const radio of serviceTypeRadios) {
+            if (radio.checked) {
+                selectedType = radio.value;
+                break;
+            }
+        }
+        
+    
+        if (selectedType === 'basic') {
+            
+            optionsSection.style.display = 'none';
+            propertySection.style.display = 'none';
+        } else if (selectedType === 'standard') {
+            
+            optionsSection.style.display = 'block';
+            propertySection.style.display = 'none';
+        } else if (selectedType === 'premium') {
+            
+            optionsSection.style.display = 'none';
+            propertySection.style.display = 'block';
+        }
+    }
+    
+    
+    updateVisibility();
+    calculateTotal();
+    
+    
+    serviceTypeRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            updateVisibility();
+            calculateTotal();
+        });
     });
-
-
-    productSelect.addEventListener('change', function() {
-        console.log('Товар изменён на:', productSelect.value);
-    });
+    
+    
+    quantityInput.addEventListener('input', calculateTotal);
+    
+   
+    optionsSelect.addEventListener('change', calculateTotal);
+    
+   
+    propertyCheckbox.addEventListener('change', calculateTotal);
+    
+   
+    quantityInput.addEventListener('keyup', calculateTotal);
 });
