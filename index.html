@@ -133,100 +133,78 @@
                         <figcaption>Карта изображения с интерактивными областями</figcaption>
                     </figure>
                     <h3>6. Изображение с интерактивными областями</h3>
-                    <img id="kartinka" src="https://www.rosphoto.com/images/u/articles/1510/7_5.jpg" alt="Изображение с якорем" width="300" height="300" class="img-fluid" />
+<img src="jm.jpg" alt="Джейме Ланнистер" id="kartinka" class="kartinka" style="max-width: 150px;">
                 </section>
             </section>
         </div>
 
-        <div class="row gy-4">
-            <section id="contact-form" class="content-section col-12" aria-labelledby="form-title">
-                <h2 id="form-title" class="mb-3 border-bottom pb-2 text-primary">Форма обратной связи</h2>
-                <form id="contactForm" action="https://httpbin.org/post" method="post" enctype="application/x-www-form-urlencoded" autocomplete="on" class="row g-3">
-                    <div class="col-md-6">
-                        <label for="fullname" class="form-label">ФИО:</label>
-                        <input type="text" id="fullname" name="fullname" placeholder="Иванов Иван Иванович" required minlength="6" class="form-control">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="phone" class="form-label">Телефон:</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+7 (_) _--" required minlength="11" class="form-control">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="email" class="form-label">E-mail:</label>
-                        <input type="email" id="email" name="email" placeholder="name@example.com" required class="form-control">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="bdate" class="form-label">Дата рождения:</label>
-                        <input type="date" id="bdate" name="birthdate" required class="form-control">
-                    </div>
-                    <fieldset class="col-12">
-                        <legend class="form-label">Пол:</legend>
-                        <div class="form-check form-check-inline">
-                            <input type="radio" id="male" name="gender" value="male" class="form-check-input" required>
-                            <label for="male" class="form-check-label">Мужской</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input type="radio" id="female" name="gender" value="female" class="form-check-input">
-                            <label for="female" class="form-check-label">Женский</label>
-                        </div>
-                    </fieldset>
-                    <div class="col-12">
-                        <label for="langs" class="form-label">Любимый(е) язык(и) программирования (выберите один или несколько):</label>
-                        <select id="langs" name="languages[]" multiple size="6" class="form-select">
-                            <option value="Pascal">Pascal</option>
-                            <option value="C">C</option>
-                            <option value="C++">C++</option>
-                            <option value="JavaScript">JavaScript</option>
-                            <option value="PHP">PHP</option>
-                            <option value="Python">Python</option>
-                            <option value="Java">Java</option>
-                            <option value="Haskell">Haskell</option>
-                            <option value="Clojure">Clojure</option>
-                            <option value="Prolog">Prolog</option>
-                            <option value="Scala">Scala</option>
-                        </select>
-                    </div>
-                    <div class="col-12">
-                        <label for="bio" class="form-label">Краткая биография:</label>
-                        <textarea id="bio" name="biography" rows="6" cols="60" placeholder="Расскажите о себе..." required class="form-control"></textarea>
-                    </div>
-                    <div class="col-12">
-                        <div class="form-check">
-                            <input type="checkbox" id="agree" name="agree" required class="form-check-input">
-                            <label for="agree" class="form-check-label">С контрактом ознакомлен(а)</label>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Сохранить</button>
-                    </div>
-                </form>
-            </section>
-        </div>
-        <div class="row gy-4">
-            <section id="calculator-section" aria-labelledby="calculator-title" class="col-12">
-                <h2 id="calculator-title" class="mb-3 border-bottom pb-2 text-primary">Калькулятор стоимости заказа</h2>
-                <div class="calculator-container">
-                    <div class="section mb-3">
-                        <label for="product" class="form-label fw-bold">Товар:</label>
-                        <select id="product" class="form-select">
-                            <option value="100000">Mercedes C-Class 180 - 100,000 руб.</option>
-                            <option value="150000">Mercedes C-Class 200 - 150,000 руб.</option>
-                            <option value="200000">Mercedes C-Class 300 - 200,000 руб.</option>
-                            <option value="50000">Запаска - 50,000 руб.</option>
-                            <option value="25000">Чехол для сидений - 25,000 руб.</option>
-                        </select>
-                    </div>
-                    <div class="section mb-3">
-                        <label for="quantity" class="form-label fw-bold">Количество:</label>
-                        <input type="number" id="quantity" min="1" value="1" class="form-control">
-                    </div>
-                    <button id="calculateBtn" class="btn btn-success w-100 mb-3">Рассчитать стоимость</button>
-                    <div class="total text-center p-3 bg-light rounded" id="totalPrice">Стоимость заказа: 0 руб.</div>
+<!-- Заменяем весь блок калькулятора на этот -->
+<div class="row gy-4">
+    <section id="calculator-section" aria-labelledby="calculator-title" class="col-12">
+        <h2 id="calculator-title" class="mb-3 border-bottom pb-2 text-primary">Калькулятор стоимости услуги</h2>
+        <div class="calculator-container">
+            <!-- Поле количества -->
+            <div class="section mb-3">
+                <label for="quantity" class="form-label fw-bold">Количество:</label>
+                <input type="number" id="quantity" min="1" value="1" class="form-control">
+            </div>
+            
+            <!-- Тип услуги (радиокнопки) -->
+            <div class="section mb-3">
+                <label class="form-label fw-bold">Тип услуги:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="serviceType" id="type1" value="basic" checked data-price="1000">
+                    <label class="form-check-label" for="type1">
+                        Базовая услуга - 1,000 руб.
+                    </label>
                 </div>
-            </section>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="serviceType" id="type2" value="standard" data-price="2000">
+                    <label class="form-check-label" for="type2">
+                        Стандартная услуга - 2,000 руб.
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="serviceType" id="type3" value="premium" data-price="3000">
+                    <label class="form-check-label" for="type3">
+                        Премиум услуга - 3,000 руб.
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Опции (появляются только для типа 2) -->
+            <div class="section mb-3" id="optionsSection" style="display: none;">
+                <label for="options" class="form-label fw-bold">Опции:</label>
+                <select id="options" class="form-select">
+                    <option value="0" selected>Без опции</option>
+                    <option value="500">Опция А (+500 руб.)</option>
+                    <option value="1000">Опция Б (+1,000 руб.)</option>
+                </select>
+            </div>
+            
+            <!-- Свойство (чекбокс, появляется только для типа 3) -->
+            <div class="section mb-3" id="propertySection" style="display: none;">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="property" value="800">
+                    <label class="form-check-label" for="property">
+                        Дополнительное свойство (+800 руб.)
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Итоговая стоимость (отображается динамически) -->
+            <div class="total text-center p-3 bg-light rounded" id="totalPrice">
+                Итоговая стоимость: <span id="priceValue">1000</span> руб.
+            </div>
+            
+            <!-- Информационное сообщение -->
+            <div class="alert alert-info mt-3" role="alert">
+                <small>Цена обновляется автоматически при изменении параметров</small>
+            </div>
         </div>
-    
-
-    
+    </section>
+</div>
+     
     <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
