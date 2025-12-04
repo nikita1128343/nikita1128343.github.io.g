@@ -138,18 +138,18 @@
             </section>
         </div>
 
-<!-- Заменяем весь блок калькулятора на этот -->
+
 <div class="row gy-4">
     <section id="calculator-section" aria-labelledby="calculator-title" class="col-12">
         <h2 id="calculator-title" class="mb-3 border-bottom pb-2 text-primary">Калькулятор стоимости услуги</h2>
         <div class="calculator-container">
-            <!-- Поле количества -->
+            
             <div class="section mb-3">
                 <label for="quantity" class="form-label fw-bold">Количество:</label>
                 <input type="number" id="quantity" min="1" value="1" class="form-control">
             </div>
             
-            <!-- Тип услуги (радиокнопки) -->
+            
             <div class="section mb-3">
                 <label class="form-label fw-bold">Тип услуги:</label>
                 <div class="form-check">
@@ -172,7 +172,7 @@
                 </div>
             </div>
             
-            <!-- Опции (появляются только для типа 2) -->
+           
             <div class="section mb-3" id="optionsSection" style="display: none;">
                 <label for="options" class="form-label fw-bold">Опции:</label>
                 <select id="options" class="form-select">
@@ -182,7 +182,7 @@
                 </select>
             </div>
             
-            <!-- Свойство (чекбокс, появляется только для типа 3) -->
+            
             <div class="section mb-3" id="propertySection" style="display: none;">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="property" value="800">
@@ -192,12 +192,12 @@
                 </div>
             </div>
             
-            <!-- Итоговая стоимость (отображается динамически) -->
+            
             <div class="total text-center p-3 bg-light rounded" id="totalPrice">
                 Итоговая стоимость: <span id="priceValue">1000</span> руб.
             </div>
             
-            <!-- Информационное сообщение -->
+           
             <div class="alert alert-info mt-3" role="alert">
                 <small>Цена обновляется автоматически при изменении параметров</small>
             </div>
