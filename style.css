@@ -147,4 +147,45 @@ footer {
     font-weight: bold;
     color: #28a745;
 }
+.calculator-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 25px;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-container .section {
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    margin-bottom: 15px;
+}
+
+.calculator-container .form-check {
+    margin-bottom: 10px;
+    padding-left: 2rem;
+}
+
+.calculator-container .form-check-input {
+    width: 1.2em;
+    height: 1.2em;
+    margin-left: -2rem;
+}
+
+#totalPrice {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #28a745;
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    border: 2px solid #28a745;
+}
+
+#priceValue {
+    color: #198754;
+    font-size: 1.5em;
+}
 }
